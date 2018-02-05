@@ -1,0 +1,9 @@
+level1.map[0]: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+level1.map[1]: 0                             0
+level1.map[2]: 0                             0
+level1.map[3]: 0                             0
+level1.map[4]: 0            0                0
+level1.map[5]: 0                             0
+level1.map[6]: 0                             0
+level1.map[7]: 0                             0
+level1.map[8]: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
