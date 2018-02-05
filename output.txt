@@ -1,9 +1,18 @@
-level1.map[0]: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-level1.map[1]: 0                             0
-level1.map[2]: 0                             0
-level1.map[3]: 0                             0
-level1.map[4]: 0            0                0
-level1.map[5]: 0                             0
-level1.map[6]: 0                             0
-level1.map[7]: 0                             0
-level1.map[8]: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+level1.map[0]: 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
+level1.map[1]: 4                                                             4
+level1.map[2]: 4                                                             4
+level1.map[3]: 4                                                             4
+level1.map[4]: 4                                                             4
+level1.map[5]: 4                                                             4
+level1.map[6]: 4                                                             4
+level1.map[7]: 4                                                             4
+level1.map[8]: 4                                                             4
+level1.map[9]: 4                                                             4
+level1.map[10]: 4                                                             4
+level1.map[11]: 4                                                             4
+level1.map[12]: 4                                                             4
+level1.map[13]: 4                                                             4
+level1.map[14]: 4                                                             4
+level1.map[15]: 4                                                             4
+level1.map[16]: 4                                                             4
+level1.map[17]: 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4

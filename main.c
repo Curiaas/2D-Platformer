@@ -6,9 +6,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 #define RESOLUTION_WIDTH 1280
 #define RESOLUTION_HEIGHT 720
+#define FPS 60
 
 void renderTex(int, float, float, float, SDL_Renderer*, SDL_Texture*[]);
 
@@ -21,25 +23,12 @@ int main(int argc, char *argv[])
 	print = fopen("output.txt", "w");
 	
 	data game;
-    game.column = 16;
-	game.row = 9;
+    game.column = 32;
+	game.row = 18;
+	game.open = true;
+	game.end = false;
 	float PpB = RESOLUTION_HEIGHT / game.row;
-	
-	// Init Map 1
-	FILE* map1;
-	map1 = fopen("map2.txt", "r");
-	level level1;
-	for (int i = 0; i < game.row; i++)
-	{
-		fgets(level1.map[i], (game.column*2)+1, map1);
-		fprintf(print, "level1.map[%d]: %s", i, level1.map[i]);
-	}
-	fclose(map1);
-	// Init Map 1 End
-	
 
-	
-	
 	// Basic Framework
 	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_TIMER) != 0)
 	{
@@ -67,10 +56,9 @@ int main(int argc, char *argv[])
 		return 1;
 	}
 	// Basic Framework End
-	
 
 	// Texture Initialization
-	#define NumberOfTextures 4
+	#define NumberOfTextures 7
 	SDL_Texture* texNum[NumberOfTextures];
 	for (int i = 0; i < NumberOfTextures; i++)
 	{
@@ -82,16 +70,28 @@ int main(int argc, char *argv[])
 	}
 	// Texture Initialization End
 	
-/*	// testing
+/*	// Background
 	SDL_RenderClear(rend);
-	SDL_Surface* BackgroundImage = IMG_Load("textures/Background.jpg");
+	SDL_Surface* BackgroundImage = IMG_Load("textures/texBackground.jpg");
 	SDL_Texture* texBackgroundImage = SDL_CreateTextureFromSurface(rend, BackgroundImage);
 	SDL_FreeSurface(BackgroundImage);
 	SDL_RenderCopy(rend, texBackgroundImage, NULL, NULL);
-*/	// testing end
-	
+*/	// Background End
+
+	// Level 1
+	// Init Map 1
+	FILE* map1;
+	map1 = fopen("map1.txt", "r");
+	level level1;
+	for (int i = 0; i < game.row; i++)
+	{
+		fgets(level1.map[i], (game.column*2)+1, map1);
+		fprintf(print, "level1.map[%d]: %s", i, level1.map[i]);
+	}
+	fclose(map1);
+	// Init Map 1 End
 	// Rendering
-//  SDL_RenderClear(rend);
+    SDL_RenderClear(rend);
 	FILE* rendertests;
 	rendertests = fopen("rendertests.txt", "w");
 	int TexFromMap;
@@ -108,8 +108,33 @@ int main(int argc, char *argv[])
 	SDL_RenderPresent(rend);
 	// Rendering End
 	
+	while (game.open && !(game.end))
+	{
+		SDL_Event event;
+		while (SDL_PollEvent(&event))
+		{
+				if (event.type == SDL_QUIT)
+				{
+					game.open = false;
+					game.end = true;
+				}
+				else if (event.type == SDL_KEYDOWN)
+				{
+					switch (event.key.keysym.scancode)
+					{
+						case SDL_SCANCODE_ESCAPE:
+							game.open = false;
+							game.end = true;
+							break;
+						default:
+							break;
+					}
+				}
+		}
+		SDL_Delay(1000/FPS);
+	}
+	// Level 1 End
 	
-	SDL_Delay(10000);
 	SDL_DestroyRenderer(rend);
 	SDL_DestroyWindow(win);									
 	SDL_Quit();
@@ -129,31 +154,31 @@ void renderTex(int texNumber, float x_offset, float y_offset, float PpB, SDL_Ren
 	
 	switch(texNumber)
 	{
-	case 0:
+	case 48:
 		SDL_RenderCopy(rend, texNum[0], NULL, &RrenderTex);
 		break;
-	case 48:
-		SDL_RenderCopy(rend, texNum[1], NULL, &RrenderTex);
-		break;
-/*	case 2:
-		SDL_RenderCopy(rend, texNum[2], NULL, &RrenderTex);
-		break;
-	case 3:
-		SDL_RenderCopy(rend, texNum[3], NULL, &RrenderTex);
-		break;
-	case 4:
+	case 49:
 		SDL_RenderCopy(rend, texNum[4], NULL, &RrenderTex);
 		break;
-	case 5:
+	case 50:
+		SDL_RenderCopy(rend, texNum[2], NULL, &RrenderTex);
+		break;
+	case 51:
+		SDL_RenderCopy(rend, texNum[3], NULL, &RrenderTex);
+		break;
+	case 52:
+		SDL_RenderCopy(rend, texNum[4], NULL, &RrenderTex);
+		break;
+	case 53:
 		SDL_RenderCopy(rend, texNum[5], NULL, &RrenderTex);
 		break;
-	case 6:
+	case 54:
 		SDL_RenderCopy(rend, texNum[6], NULL, &RrenderTex);
 		break;
-	case 7:
+	case 55:
 		SDL_RenderCopy(rend, texNum[7], NULL, &RrenderTex);
 		break;
-	case 8:
+/*	case 8:
 		SDL_RenderCopy(rend, texNum[8], NULL, &RrenderTex);
 		break;
 	case 9:
