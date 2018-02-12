@@ -8,8 +8,16 @@ typedef struct {
 } data;
 
 typedef struct {
-	char map[18][64]; // [game.row][game.columns*2]
-} level;
+	int x, y;
+} koordinates;
 
+typedef struct {
+	koordinates position;
+} character;
+
+typedef struct {
+	char map[18][64]; // [game.row][game.columns*2]
+} level;	
+	
 // Prototypes
 void test();

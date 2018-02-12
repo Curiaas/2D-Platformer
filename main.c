@@ -27,6 +27,9 @@ int main(int argc, char *argv[])
 	game.row = 18;
 	game.open = true;
 	game.end = false;
+	
+//	character charTop, charBottom;
+	
 	float PpB = RESOLUTION_HEIGHT / game.row;
 
 	// Basic Framework
@@ -58,7 +61,7 @@ int main(int argc, char *argv[])
 	// Basic Framework End
 
 	// Texture Initialization
-	#define NumberOfTextures 7
+	#define NumberOfTextures 12
 	SDL_Texture* texNum[NumberOfTextures];
 	for (int i = 0; i < NumberOfTextures; i++)
 	{
@@ -102,8 +105,21 @@ int main(int argc, char *argv[])
 			TexFromMap = level1.map[m][n];
 			fprintf(rendertests, "TexFromMap[%d][%d]: %d\n", m , n, TexFromMap);
 			renderTex(TexFromMap, i, m, PpB, rend, texNum);
-		}
+/*			if (TexFromMap == 64)
+			{
+				charTop.position.x = n;
+				charBottom.position.y = m;
+			}
+			if (TexFromMap == 61)
+			{
+				charBottom.position.x = n;
+				charBottom.position.y = m;
+			}
+*/		}
 	}
+	
+//	fprintf(print, "Top.x = %d, Top.y = %d,  Bot.x= %d, Bot.y = %d\n", charTop.position.x, charTop.position.y, charBottom.position.x, charBottom.position.y);
+	
 	fclose(rendertests);
 	SDL_RenderPresent(rend);
 	// Rendering End
@@ -184,7 +200,13 @@ void renderTex(int texNumber, float x_offset, float y_offset, float PpB, SDL_Ren
 	case 9:
 		SDL_RenderCopy(rend, texNum[9], NULL, &RrenderTex);
 		break;
-*/	default: 
+*/  case 61: // =
+		SDL_RenderCopy(rend, texNum[10], NULL, &RrenderTex);
+		break;
+	case 64: // @
+		SDL_RenderCopy(rend, texNum[11], NULL, &RrenderTex);
+		break;	
+	default: 
 		break;
 	}
 }

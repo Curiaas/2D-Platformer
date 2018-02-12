@@ -482,7 +482,7 @@ TexFromMap[15][0]: 52
 TexFromMap[15][2]: 32
 TexFromMap[15][4]: 32
 TexFromMap[15][6]: 32
-TexFromMap[15][8]: 32
+TexFromMap[15][8]: 64
 TexFromMap[15][10]: 32
 TexFromMap[15][12]: 32
 TexFromMap[15][14]: 32
@@ -514,7 +514,7 @@ TexFromMap[16][0]: 52
 TexFromMap[16][2]: 32
 TexFromMap[16][4]: 32
 TexFromMap[16][6]: 32
-TexFromMap[16][8]: 32
+TexFromMap[16][8]: 61
 TexFromMap[16][10]: 32
 TexFromMap[16][12]: 32
 TexFromMap[16][14]: 32

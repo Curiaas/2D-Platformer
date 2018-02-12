@@ -13,6 +13,6 @@ level1.map[11]: 4                                                             4
 level1.map[12]: 4                                                             4
 level1.map[13]: 4                                                             4
 level1.map[14]: 4                                                             4
-level1.map[15]: 4                                                             4
-level1.map[16]: 4                                                             4
+level1.map[15]: 4       @                                                     4
+level1.map[16]: 4       =                                                     4
 level1.map[17]: 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
